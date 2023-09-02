@@ -24,14 +24,19 @@ int main() {
     cin >> employed;
     employed = toupper(employed);       // FORCE UPPERCASE
 
-    cout << "\nDid you graduate from college";
-    cout << "\nin the past two years ? (y/n) ";
-    cin >> recentGrad;
-    recentGrad = toupper(recentGrad);   // FORCE UPPERCASE
-
     // Determine user's loan qualifications
-    if (employed == 'Y')
+    if (employed != 'Y')  // Not employed
     {
+        cout << "\nSorry, you must be currently employed";
+        cout << "\nto qualify.\n";
+    }
+    else
+    {
+        cout << "\nDid you graduate from college";
+        cout << "\nin the past two years ? (y/n) ";
+        cin >> recentGrad;
+        recentGrad = toupper(recentGrad);   // FORCE UPPERCASE
+
         if (recentGrad == 'Y') // Nested if
         {
             cout << "\nYou qualify for the special interest rate!\n";
@@ -42,11 +47,6 @@ int main() {
             cout << "\nfrom college in the past two";
             cout << "\nyears to qualify.\n";
         }
-    }
-    else  // Not employed
-    {
-        cout << "\nSorry, you must be currently employed";
-        cout << "\nto qualify.\n";
     }
     return 0;
 }
